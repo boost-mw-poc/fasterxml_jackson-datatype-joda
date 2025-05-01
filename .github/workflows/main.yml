@@ -1,18 +1,12 @@
 name: Build and Deploy Snapshot
 on:
   push:
-    branches:
-    - master
-    - "3.0"
-    - "2.18"
+    branches: [2.*]
     paths-ignore:
     - "README.md"
     - "release-notes/*"
   pull_request:
-    branches:
-    - master
-    - "3.0"
-    - "2.18"
+    branches: [2.*]
     paths-ignore:
     - "README.md"
     - "release-notes/*"
@@ -22,7 +16,7 @@ env:
   JODA_MAX: '2.12.7'
 jobs:
   build:
-    runs-on: 'ubuntu-22.04'
+    runs-on: 'ubuntu-24.04'
     strategy:
       fail-fast: false
       matrix:
