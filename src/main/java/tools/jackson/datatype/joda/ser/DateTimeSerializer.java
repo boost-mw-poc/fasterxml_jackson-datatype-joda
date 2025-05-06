@@ -52,7 +52,7 @@ public class DateTimeSerializer
             if (numeric) {
                 gen.writeNumber(value.getMillis());
             } else {
-                gen.writeString(_format.createFormatter(ctxt, value.getZone()).print(value));
+                gen.writeString(_format.createFormatterWithTimeZoneOverride(ctxt, value.getZone()).print(value));
             }
         } else {
             // and then as per [datatype-joda#44], optional TimeZone inclusion
