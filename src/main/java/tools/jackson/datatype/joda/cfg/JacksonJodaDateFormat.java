@@ -242,13 +242,35 @@ public class JacksonJodaDateFormat extends JacksonJodaFormatBase
         return _formatter;
     }
 
+    /**
+     * @deprecated since 2.20 Use {@link #createFormatter(SerializerProvider, DateTimeZone)} instead
+     */
+    @Deprecated // since 2.20
     public DateTimeFormatter createFormatter(SerializationContext ctxt)
+    {
+        return createFormatter(ctxt, null);
+    }
+
+    /**
+     * Creates a formatter with the specified timezone from the value if any.
+     *
+     * [dataformat-joda#92] DateTime serialization result is not same as Java 8 ZonedDateTime
+     *
+     * @since 2.20
+     */
+    public DateTimeFormatter createFormatter(SerializationContext ctxt, DateTimeZone valueTimeZone)
     {
         DateTimeFormatter formatter = createFormatterWithLocale(ctxt);
         if (!_explicitTimezone) {
             TimeZone tz = ctxt.getTimeZone();
             if ((tz != null) && !tz.equals(_jdkTimezone)) {
                 formatter = formatter.withZone(DateTimeZone.forTimeZone(tz));
+            }
+        }
+        if (!ctxt.isEnabled(DateTimeFeature.WRITE_DATES_WITH_CONTEXT_TIME_ZONE)) {
+            if ((valueTimeZone != null)
+                    && ((_jdkTimezone == null) || !valueTimeZone.toTimeZone().equals(_jdkTimezone))) {
+                formatter = formatter.withZone(valueTimeZone);
             }
         }
         return formatter;

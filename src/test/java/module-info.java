@@ -16,6 +16,5 @@ module tools.jackson.datatype.joda
     opens tools.jackson.datatype.joda;
     opens tools.jackson.datatype.joda.deser;
     opens tools.jackson.datatype.joda.ser;
-    opens tools.jackson.datatype.joda.tofix;
     opens tools.jackson.datatype.joda.testutil.failure;
 }
