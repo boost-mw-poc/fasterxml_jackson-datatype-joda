@@ -18,7 +18,7 @@ Project: jackson-datatype-joda
 #152: Unify testing structure/tools [JSTEP-10]
  (contributed by Joo-Hyuk K)
 
-2.18.4 (not yet released)
+2.18.4 (06-May-2025)
 
 #160: Cannot serialize `org.joda.time.Days`
  (reported by @bestbugwriter)
