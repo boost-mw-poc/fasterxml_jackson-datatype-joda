@@ -69,9 +69,25 @@ abstract class JodaDeserializerBase<T> extends StdScalarDeserializer<T>
         throws JacksonException
     {
         final JavaType type = getValueType(ctxt);
-        return (T) ctxt.handleUnexpectedToken(type, p.currentToken(), p,
-                String.format("Cannot deserialize value of type %s from `JsonToken.%s`: expected Number or String",
-                        ClassUtil.getTypeDescription(type), p.currentToken()));
+        final JsonToken t = p.currentToken();
+        return (T) ctxt.handleUnexpectedToken(type, t, p,
+                String.format("Cannot deserialize value of type %s from %s (token `JsonToken.%s`): expected Number or String",
+                        ClassUtil.getTypeDescription(type),
+                        JsonToken.valueDescFor(t),
+                        p.currentToken()));
+    }
+
+    @SuppressWarnings("unchecked")
+    public T _handleNotString(JsonParser p, DeserializationContext ctxt)
+        throws JacksonException
+    {
+        final JavaType type = getValueType(ctxt);
+        final JsonToken t = p.currentToken();
+        return (T) ctxt.handleUnexpectedToken(type, t, p,
+                String.format("Cannot deserialize value of type %s from %s (token `JsonToken.%s`): expected String",
+                        ClassUtil.getTypeDescription(type),
+                        JsonToken.valueDescFor(t),
+                        p.currentToken()));
     }
 
     /**

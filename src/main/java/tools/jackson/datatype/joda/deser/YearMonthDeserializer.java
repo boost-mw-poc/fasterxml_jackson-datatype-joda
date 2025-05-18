@@ -46,8 +46,7 @@ public class YearMonthDeserializer extends JodaDateDeserializerBase<YearMonth>
             }
             // fall through
         }
-        return (YearMonth) ctxt.handleUnexpectedToken(getValueType(ctxt), p.currentToken(), p,
-                "expected JSON String");
+        return _handleNotString(p, ctxt);
     }
 
     // @since 2.12
