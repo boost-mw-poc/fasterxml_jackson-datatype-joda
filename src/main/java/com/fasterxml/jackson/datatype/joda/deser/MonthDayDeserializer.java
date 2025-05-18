@@ -50,8 +50,7 @@ public class MonthDayDeserializer extends JodaDateDeserializerBase<MonthDay>
             }
             // fall through
         }
-        return (MonthDay) ctxt.handleUnexpectedToken(handledType(), p.currentToken(), p,
-                "expected JSON String");
+        return _handleNotString(p, ctxt);
     }
 
     // @since 2.12
