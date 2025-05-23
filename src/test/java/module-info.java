@@ -17,4 +17,8 @@ module tools.jackson.datatype.joda
     opens tools.jackson.datatype.joda.deser;
     opens tools.jackson.datatype.joda.ser;
     opens tools.jackson.datatype.joda.testutil.failure;
+
+    provides tools.jackson.databind.JacksonModule with
+        tools.jackson.datatype.joda.JodaModule;
+    uses tools.jackson.databind.JacksonModule;
 }
