@@ -8,7 +8,7 @@ Project: jackson-datatype-joda
 
 -
 
-2.19.1 (not yet released)
+2.19.1 (13-Jun-2025)
 
 #98: `JsonFormat` timezone attribute effect overwritten if pattern attribute present
  (contributed by Joo-Hyuk K)
