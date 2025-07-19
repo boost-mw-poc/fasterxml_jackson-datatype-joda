@@ -14,7 +14,11 @@ Project: jackson-datatype-joda
 - Add unit test to verify goodness of SPI metadata for Modules
 - Generate SBOMs [JSTEP-14]
 
-2.19.1 (not yet released)
+2.19.2 (18-Jul-2025)
+
+No changes since 2.19.1
+
+2.19.1 (13-Jun-2025)
 
 #98: `JsonFormat` timezone attribute effect overwritten if pattern attribute present
  (contributed by Joo-Hyuk K)
