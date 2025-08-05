@@ -4,7 +4,7 @@ Project: jackson-datatype-joda
 === Releases ===
 ------------------------------------------------------------------------
 
-2.20.0 (not yet released)
+2.20.0-rc1 (04-Aug-2025)
 
 #92: `DateTime` serialization result is not same as Java 8 `ZonedDateTime`
  (fixed by Joo-Hyuk K)
