@@ -11,6 +11,7 @@
     <artifactId>jackson-base</artifactId>
     <version>3.0.0-rc9-SNAPSHOT</version>
   </parent>
+
   <groupId>tools.jackson.datatype</groupId>
   <artifactId>jackson-datatype-joda</artifactId>
   <name>Jackson datatype: Joda</name>
